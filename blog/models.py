@@ -12,6 +12,9 @@ class Post(models.Model): #모델 정의 > class : 객체, post : 모델 이름,
     published_date = models.DateTimeField(
             blank=True, null=True)
 
+    def summary(self):
+        return self.text[:250]
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
